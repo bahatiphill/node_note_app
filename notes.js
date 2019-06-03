@@ -45,11 +45,9 @@ const addNote = function(title, body) {
   const notes = loadNotes();
 
   //check if note is already exist
-  const duplicatenotes = notes.filter(function(note) {
-    return note.title === title;
-  });
+  const duplicatenote = notes.find(note => note.title === title);
 
-  if (duplicatenotes.length === 0) {
+  if (!duplicatenote) {
     //push note to  array
     notes.push({
       title: title,
